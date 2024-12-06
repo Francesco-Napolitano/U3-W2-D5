@@ -9,7 +9,7 @@ const WeatherNavbar = (props) => {
 
   const handleSearch = (e) => {
     e.preventDefault()
-    props.onSearch(searchQuery /*.toUpperCase()*/)
+    props.onSearch(searchQuery.toUpperCase())
     navigate('/search')
     setSearchQuery('')
   }
