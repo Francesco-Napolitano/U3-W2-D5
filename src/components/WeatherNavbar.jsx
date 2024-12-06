@@ -1,14 +1,16 @@
 import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 const WeatherNavbar = (props) => {
   const location = useLocation()
 
   const [searchQuery, setSearchQuery] = useState('')
+  const navigate = useNavigate()
 
   const handleSearch = (e) => {
     e.preventDefault()
     props.onSearch(searchQuery /*.toUpperCase()*/)
+    navigate('/search')
     setSearchQuery('')
   }
 
@@ -54,7 +56,7 @@ const WeatherNavbar = (props) => {
                 setSearchQuery(e.target.value)
               }}
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="info">Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>

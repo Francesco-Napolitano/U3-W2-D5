@@ -1,49 +1,35 @@
 import { Card, Spinner, Alert } from 'react-bootstrap'
 
-const SearchWeather = (result, loading, error) => {
-  //   const weatherHomepage = (props) => {
-  //     fetch(
-  //       'https://api.openweathermap.org/data/2.5/forecast/hourly?q={city name}&appid={API key}'
-  //     )
-  //       .then((res) => {
-  //         if (res.ok) {
-  //           return res.json()
-  //         } else {
-  //           throw new Error("Errore all'avvio")
-  //         }
-  //       })
-  //       .then((data) => {
-  //         console.log(data)
-  //         setWeather(data)
-  //         setLoading(false)
-  //       })
-  //       .catch((err) => {
-  //         console.log('OH NO!', err)
-  //         setError(true)
-  //       })
-  //   }
-
-  //   useEffect(() => {
-  //     weatherHomepage()
-  //   }, [])
-
+const SearchWeather = (props) => {
   return (
     <Card>
       <Card.Body>
-        {loading && (
+        {props.loading && (
           <div className="d-flex justify-content-center">
             <Spinner animation="border" role="status" variant="info" />
           </div>
         )}
-        {error && <Alert variant="danger">Errore</Alert>}
-        {!error && !loading && (
+        {props.error && <Alert variant="danger">Errore</Alert>}
+        {!props.error && !props.loading && (
           <>
-            <Card.Title>
-              Today in {result.weather.name} ({result.weather.sys.country}){' '}
-              <i class="bi bi-heart"></i>
-            </Card.Title>
-            <Card.Text>{result.weather.weather[0].main}</Card.Text>
-            <Card.Text>({result.weather.weather[0].description})</Card.Text>
+            {props.result ? (
+              <>
+                <Card.Title>
+                  Today in {props.result.name} ({props.result.sys.country}){' '}
+                  <i className="bi bi-heart"></i>
+                </Card.Title>
+                <Card.Text>
+                  {props.result.weather[0].main} - (
+                  {props.result.weather[0].description})
+                </Card.Text>
+                <Card.Text className="m-0">
+                  Humidity: {props.result.main.humidity} %{' '}
+                </Card.Text>
+                <Card.Text className="fs-1">
+                  Temperature: {(props.result.main.temp - 273.15).toFixed(0)} °C
+                </Card.Text>
+              </>
+            ) : null}
           </>
         )}
       </Card.Body>

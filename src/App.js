@@ -38,17 +38,26 @@ const App = () => {
     <BrowserRouter>
       <WeatherNavbar onSearch={getResults} />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage reload={searchResult} />} />
         <Route
-          path="/favourites"
+          path="/favourites/:city"
           element={
             <div>
               <h1>FAVOURITES</h1>
             </div>
           }
         />
+        <Route
+          path="/search"
+          element={
+            <SearchWeather
+              result={searchResult}
+              loading={loading}
+              error={error}
+            />
+          }
+        />
       </Routes>
-      <SearchWeather result={searchResult} loading={loading} error={error} />
     </BrowserRouter>
   )
 }

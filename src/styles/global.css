@@ -1,8 +1,9 @@
 .card-body {
-  background-image: url("https://d2j6dbq0eux0bg.cloudfront.net/images/4871051/4061735598.jpg");
+  background-image: url("https://www.louisdallaraphotography.com/wp-content/uploads/2019/11/clouds-photo-6119.jpg");
   height: 90vh;
   width: 100%;
   background-size: cover;
+  background-position: bottom;
   display: flex;
   flex-direction: column-reverse;
   padding-bottom: 2em;
