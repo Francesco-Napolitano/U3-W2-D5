@@ -1,3 +1,13 @@
 .navbar-brand > img{
    width: 4em ;
 }
+
+.navbar{
+   background-image: url(https://img.freepik.com/premium-photo/large-format-banner-white-fluffy-cloud-bright-blue-sky-horizon-beautiful-sky-background-from-white-clouds-fluffy-white-clouds-against-background-clear-daytime-sky_334328-1548.jpg);
+   background-size: cover;
+   background-position: bottom;
+   padding: 1em;
+   position: fixed !important;
+   top: 0 !important;
+    width: 100%;
+}

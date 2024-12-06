@@ -1,6 +1,5 @@
 import { Card, Spinner, Alert } from 'react-bootstrap'
 import { useEffect, useState } from 'react'
-import '../styles/global.css'
 
 const HomePage = () => {
   const [weather, setWeather] = useState()
@@ -44,10 +43,11 @@ const HomePage = () => {
         {!error && !loading && (
           <>
             <Card.Title>
-              {weather.name} ({weather.sys.country})
+              Today in {weather.name} ({weather.sys.country}){' '}
+              <i class="bi bi-heart"></i>
             </Card.Title>
             <Card.Text>{weather.weather[0].main}</Card.Text>
-            <Card.Text>{weather.weather[0].description}</Card.Text>
+            <Card.Text>({weather.weather[0].description})</Card.Text>
           </>
         )}
       </Card.Body>

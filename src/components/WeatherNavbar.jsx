@@ -1,15 +1,23 @@
 import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap'
-
 import { Link, useLocation } from 'react-router-dom'
-import '../styles/weatherNavbar.css'
-const WeatherNavbar = () => {
+import { useState } from 'react'
+const WeatherNavbar = (props) => {
   const location = useLocation()
+
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const handleSearch = (e) => {
+    e.preventDefault()
+    props.onSearch(searchQuery /*.toUpperCase()*/)
+    setSearchQuery('')
+  }
+
   return (
-    <Navbar expand="lg" className="bg-info">
+    <Navbar expand="lg">
       <Container fluid>
         <Navbar.Brand>
           <img
-            src="https://www.vectorkhazana.com/assets/images/products/rainbow_bundle_svg,rainbow_svg,rainbow_clipart,cloud_svg,clouds_Sun.png"
+            src="https://cdn-icons-png.flaticon.com/512/678/678310.png"
             alt="sun and rainbow logo"
           />
         </Navbar.Brand>
@@ -35,12 +43,16 @@ const WeatherNavbar = () => {
               <div>Favourites</div>
             </Link>
           </Nav>
-          <Form className="d-flex">
+          <Form className="d-flex" onSubmit={handleSearch}>
             <Form.Control
               type="search"
-              placeholder="Search"
+              placeholder="Search your city :)"
               className="me-2"
               aria-label="Search"
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value)
+              }}
             />
             <Button variant="outline-success">Search</Button>
           </Form>
