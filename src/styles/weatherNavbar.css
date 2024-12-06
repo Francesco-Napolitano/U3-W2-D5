@@ -11,3 +11,10 @@
    top: 0 !important;
     width: 100%;
 }
+
+.navbar-nav{
+   display: flex !important;
+    flex-direction: row !important;
+    flex-grow: 1 !important;
+    gap: 1em !important;
+}

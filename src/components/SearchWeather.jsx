@@ -15,7 +15,7 @@ const SearchWeather = (props) => {
             {props.result ? (
               <>
                 <Card.Title>
-                  Today in {props.result.name} ({props.result.sys.country}){' '}
+                  Today in {props.result.name}, {props.result.sys.country}
                   <i className="bi bi-heart"></i>
                 </Card.Title>
                 <Card.Text>

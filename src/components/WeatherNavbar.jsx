@@ -15,7 +15,7 @@ const WeatherNavbar = (props) => {
   }
 
   return (
-    <Navbar expand="lg">
+    <Navbar expand={false}>
       <Container fluid>
         <Navbar.Brand>
           <img
@@ -23,42 +23,39 @@ const WeatherNavbar = (props) => {
             alt="sun and rainbow logo"
           />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav className="me-auto my-2 my-lg-0">
-            <Link
-              to="/"
-              className={
-                location.pathname === '/' ? 'nav-link active' : 'nav-link'
-              }
-            >
-              <div>Home</div>
-            </Link>
-            <Link
-              to="/favourites"
-              className={
-                location.pathname === '/favourites'
-                  ? 'nav-link active'
-                  : 'nav-link'
-              }
-            >
-              <div>Favourites</div>
-            </Link>
-          </Nav>
-          <Form className="d-flex" onSubmit={handleSearch}>
-            <Form.Control
-              type="search"
-              placeholder="Search your city :)"
-              className="me-2"
-              aria-label="Search"
-              value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value)
-              }}
-            />
-            <Button variant="info">Search</Button>
-          </Form>
-        </Navbar.Collapse>
+        <Nav className="me-auto my-2 my-lg-0">
+          <Link
+            to="/"
+            className={
+              location.pathname === '/' ? 'nav-link active' : 'nav-link'
+            }
+          >
+            <div>Home</div>
+          </Link>
+          <Link
+            to="/favourites"
+            className={
+              location.pathname === '/favourites'
+                ? 'nav-link active'
+                : 'nav-link'
+            }
+          >
+            <div>Favourites</div>
+          </Link>
+        </Nav>
+        <Form className="d-flex" onSubmit={handleSearch}>
+          <Form.Control
+            type="search"
+            placeholder="Search your city :)"
+            className="me-2"
+            aria-label="Search"
+            value={searchQuery}
+            onChange={(e) => {
+              setSearchQuery(e.target.value)
+            }}
+          />
+          <Button variant="info">Search</Button>
+        </Form>
       </Container>
     </Navbar>
   )
